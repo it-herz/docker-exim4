@@ -6,7 +6,8 @@ RUN apt update && apt install -y clamav git libpcre3-dev build-essential libdb-d
 
 ADD Makefile /opt/exim/src/Local
 
-RUN cd /opt/exim/src && make && make install && mkdir -p /var/spool/exim && mkdir -p /usr/lib/exim/lookups && ln -sf /dev/stdout /var/log/syslog
+RUN cd /opt/exim/src && make && make install && mkdir -p /var/spool/exim && mkdir -p /usr/lib/exim/lookups && ln -sf /dev/stdout /var/log/syslog && \
+    rm -rf /var/lib/apt/lists/* && mkdir -p /run/php && mkdir /var/log/supervisor/ && /usr/bin/easy_install supervisor && /usr/bin/easy_install supervisor-stdout
 
 WORKDIR /usr/bin
 
