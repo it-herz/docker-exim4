@@ -13,5 +13,7 @@ WORKDIR /usr/bin
 
 ADD supervisord.conf /etc/supervisord.conf
 
+EXPOSE 25 465 587
+
 CMD ["supervisord","-n","-c","/etc/supervisord.conf"]
 
