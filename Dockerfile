@@ -7,7 +7,7 @@ RUN apt update && apt install -y clamav git libpcre3-dev build-essential libdb-d
 RUN apt install -y uuid-dev libgcrypt-dev libestr-dev flex dh-autoreconf bison python-docutils && \
     cd /opt && git clone https://github.com/rsyslog/libfastjson && cd libfastjson && autoreconf -v --install && ./configure && make && make install && \
     git clone https://github.com/rsyslog/liblogging && cd liblogging && autoreconf -v --install && ./configure --disable-man-pages && make && make install && \
-    git clone https://github.com/rsyslog/rsyslog && cd rsyslog && ./autogen.sh --enable-omstdout && make && make install
+    git clone https://github.com/rsyslog/rsyslog && cd rsyslog && ./autogen.sh --enable-omstdout && make && make install && ldconfig
 
 ADD Makefile /opt/exim/src/Local
 
