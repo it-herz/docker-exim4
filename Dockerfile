@@ -17,6 +17,7 @@ RUN cd /opt/exim/src && make && make install && mkdir -p /var/spool/exim && mkdi
 WORKDIR /usr/bin
 
 ADD supervisord.conf /etc/supervisord.conf
+ADD rsyslog.conf /etc/rsyslog.conf
 
 EXPOSE 25 465 587
 
