@@ -1,0 +1,3 @@
+#!/bin/sh
+freshclam -d -c 24
+clamd

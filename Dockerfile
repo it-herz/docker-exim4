@@ -4,10 +4,12 @@ RUN apt update && apt install -y clamav git libpcre3-dev build-essential libdb-d
     cd /opt && git clone https://github.com/LynxChaus/libsrs-alt && cd libsrs-alt && ./configure && make && make install && cp /usr/local/lib/libsrs* /usr/lib/ && \
     cd /opt && git clone https://github.com/exim/exim && mkdir -p exim/src/Local && useradd exim4
 
-RUN apt install -y uuid-dev libgcrypt-dev libestr-dev flex dh-autoreconf bison python-docutils && \
+RUN apt install -y uuid-dev libgcrypt-dev libestr-dev flex dh-autoreconf bison python-docutils libxml2-dev && \
     cd /opt && git clone https://github.com/rsyslog/libfastjson && cd libfastjson && autoreconf -v --install && ./configure && make && make install && \
     git clone https://github.com/rsyslog/liblogging && cd liblogging && autoreconf -v --install && ./configure --disable-man-pages && make && make install && \
-    git clone https://github.com/rsyslog/rsyslog && cd rsyslog && ./autogen.sh --enable-omstdout && make && make install && ldconfig
+    git clone https://github.com/rsyslog/rsyslog && cd rsyslog && ./autogen.sh --enable-omstdout && make && make install && \
+    git clone git clone https://github.com/vrtadmin/clamav-devel && cd clamav-devel && ./configure --enable-libfreshclam --enable-experimental && make && make install && \
+    mkdir -p /usr/local/share/clamav && chmod 777 /usr/local/share/clamav/ && ldconfig
 
 ADD Makefile /opt/exim/src/Local
 
@@ -18,6 +20,11 @@ WORKDIR /usr/bin
 
 ADD supervisord.conf /etc/supervisord.conf
 ADD rsyslog.conf /etc/rsyslog.conf
+
+ADD freshclam.conf /usr/local/etc/
+ADD clamd.conf /usr/local/etc/
+
+ADD runclamd /opt
 
 EXPOSE 25 465 587
 
