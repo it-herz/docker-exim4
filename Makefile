@@ -419,7 +419,7 @@ WITH_CONTENT_SCAN=yes
 # disabling it.  To disable the inclusion of the entire feature, set
 # DISABLE_DKIM to "yes"
 
-DISABLE_DKIM=no
+# DISABLE_DKIM=no
 
 #------------------------------------------------------------------------------
 # Uncomment the following line to remove Per-Recipient-Data-Response support.
