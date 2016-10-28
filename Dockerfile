@@ -9,7 +9,13 @@ RUN apt install -y uuid-dev libgcrypt-dev libestr-dev flex dh-autoreconf bison p
     git clone https://github.com/rsyslog/liblogging && cd liblogging && autoreconf -v --install && ./configure --disable-man-pages && make && make install && \
     git clone https://github.com/rsyslog/rsyslog && cd rsyslog && ./autogen.sh --enable-omstdout && make && make install && \
     git clone https://github.com/vrtadmin/clamav-devel && cd clamav-devel && ./configure --enable-libfreshclam --enable-experimental && make && make install && \
-    mkdir -p /usr/local/share/clamav && chmod 777 /usr/local/share/clamav/ && ldconfig
+    mkdir -p /usr/local/share/clamav && chmod 777 /usr/local/share/clamav/ && ldconfig && \
+    cd /usr/local/share/ca-certificates && \
+    wget https://letsencrypt.org/certs/letsencryptauthorityx1.pem && mv letsencryptauthorityx1.pem letsencryptauthorityx1.crt && \
+    wget https://letsencrypt.org/certs/letsencryptauthorityx2.pem && mv letsencryptauthorityx2.pem letsencryptauthorityx2.crt && \
+    wget https://letsencrypt.org/certs/letsencryptauthorityx3.pem && mv letsencryptauthorityx3.pem letsencryptauthorityx3.crt && \
+    wget https://letsencrypt.org/certs/letsencryptauthorityx4.pem && mv letsencryptauthorityx4.pem letsencryptauthorityx4.crt && \
+    wget https://letsencrypt.org/certs/isrgrootx1.pem && mv isrgrootx1.pem isrgrootx1.crt && update-ca-certificates
 
 ADD Makefile /opt/exim/src/Local
 
