@@ -419,7 +419,7 @@ WITH_CONTENT_SCAN=yes
 # disabling it.  To disable the inclusion of the entire feature, set
 # DISABLE_DKIM to "yes"
 
-# DISABLE_DKIM=yes
+DISABLE_DKIM=no
 
 #------------------------------------------------------------------------------
 # Uncomment the following line to remove Per-Recipient-Data-Response support.
@@ -840,12 +840,12 @@ LOG_FILE_PATH=syslog
 # Non-printable characters are usually unacceptable regardless, so log entries
 # are still split on newline characters.
 
-# SYSLOG_LONG_LINES=yes
+SYSLOG_LONG_LINES=yes
 
 # If you are not interested in the process identifier (pid) of the Exim that is
 # making the call to syslog, then comment out the following line.
 
-SYSLOG_LOG_PID=yes
+SYSLOG_LOG_PID=no
 
 
 #------------------------------------------------------------------------------
