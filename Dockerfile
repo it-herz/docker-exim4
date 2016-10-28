@@ -8,7 +8,7 @@ RUN apt install -y uuid-dev libgcrypt-dev libestr-dev flex dh-autoreconf bison p
     cd /opt && git clone https://github.com/rsyslog/libfastjson && cd libfastjson && autoreconf -v --install && ./configure && make && make install && \
     git clone https://github.com/rsyslog/liblogging && cd liblogging && autoreconf -v --install && ./configure --disable-man-pages && make && make install && \
     git clone https://github.com/rsyslog/rsyslog && cd rsyslog && ./autogen.sh --enable-omstdout && make && make install && \
-    git clone git clone https://github.com/vrtadmin/clamav-devel && cd clamav-devel && ./configure --enable-libfreshclam --enable-experimental && make && make install && \
+    git clone https://github.com/vrtadmin/clamav-devel && cd clamav-devel && ./configure --enable-libfreshclam --enable-experimental && make && make install && \
     mkdir -p /usr/local/share/clamav && chmod 777 /usr/local/share/clamav/ && ldconfig
 
 ADD Makefile /opt/exim/src/Local
