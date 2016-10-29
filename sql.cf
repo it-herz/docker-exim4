@@ -1,3 +1,0 @@
-user_scores_dsn                 DBI:mysql:spamassassin:db
-user_scores_sql_username        spamassassin
-user_scores_sql_password        SQL_PASSWORD

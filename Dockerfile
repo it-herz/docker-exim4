@@ -31,8 +31,6 @@ ADD freshclam.conf /usr/local/etc/
 ADD clamd.conf /usr/local/etc/
 
 ADD runclamd /opt
-ADD spamd /opt
-ADD sql.cf /etc/mail/spamassassin/sql.cf
 
 EXPOSE 25 465 587
 
