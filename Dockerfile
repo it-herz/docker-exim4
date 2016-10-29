@@ -10,7 +10,7 @@ RUN apt install -y uuid-dev libgcrypt-dev libestr-dev flex dh-autoreconf bison p
     git clone https://github.com/rsyslog/rsyslog && cd rsyslog && ./autogen.sh --enable-omstdout && make && make install && \
     git clone https://github.com/vrtadmin/clamav-devel && cd clamav-devel && ./configure --enable-libfreshclam --enable-experimental && make && make install && \
     export PERL_MM_USE_DEFAULT=1 && cpan -if NetAddr::IP Digest::SHA1 Mail::SPF Geo::IP Net::CIDE::Lite Mail::SpamAssassin::Plugin::Razor2 Mail::DKIM DBI Encode::Detect::Detector Net::Patricia DBI DBD::mysql && \
-    svn checkout http://svn.apache.org/repos/asf/spamassassin/branches/3.4 spamassassin-3.4 &&
+    svn checkout http://svn.apache.org/repos/asf/spamassassin/branches/3.4 spamassassin-3.4 && \
     cd spamassassin-3.4 && echo "support@domain.org" | perl Makefile.PL && make && make install && \
     mkdir -p /usr/local/share/clamav && chmod 777 /usr/local/share/clamav/ && ldconfig && \
     cd /usr/local/share/ca-certificates && \
