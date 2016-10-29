@@ -7,8 +7,8 @@ user_awl_dsn			DBI:mysql:spamassassin:db
 user_awl_sql_username		spamassassin
 user_awl_sql_password		SQL_PASSWORD
 
-bayes_store_module 		Mail::SpamAssassin::BayesStore::MySQL
-bayes_sql_dsn 			DBI:mysql:sa_bayes:db
+bayes_store_module 		Mail::SpamAssassin::BayesStore::SQL
+bayes_sql_dsn 			DBI:mysql:spamassassin:db
 bayes_sql_username 		spamassassin
 bayes_sql_password 		SQL_PASSWORD
 
