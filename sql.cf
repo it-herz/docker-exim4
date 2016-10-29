@@ -1,0 +1,14 @@
+user_scores_dsn                 DBI:mysql:spamassassin:db
+user_scores_sql_username        spamassassin
+user_scores_sql_password        SQL_PASSWORD
+
+auto_whitelist_factory 		Mail::SpamAssassin::SQLBasedAddrList 
+user_awl_dsn			DBI:mysql:spamassassin:db
+user_awl_sql_username		spamassassin
+user_awl_sql_password		SQL_PASSWORD
+
+bayes_store_module 		Mail::SpamAssassin::BayesStore::MySQL
+bayes_sql_dsn 			DBI:mysql:sa_bayes:db
+bayes_sql_username 		spamassassin
+bayes_sql_password 		SQL_PASSWORD
+

@@ -1,0 +1,6 @@
+#!/bin/bash
+useradd spamd
+sed -i "s/SQL_PASSWORD/$SQL_PASSWORD/ig" /etc/mail/spamassassin/sql.cf
+sa-update
+sa-compile &
+/usr/local/bin/clamd -q -x -l -u spamd
