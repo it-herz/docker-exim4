@@ -30,8 +30,9 @@ RUN cd /opt && wget http://marc.merlins.org/linux/exim/files/sa-exim-current.tar
     wget http://sa-russian.narod.ru/files/20110415/99_russian_common_re.cf && \
     wget http://sa-russian.narod.ru/files/20110415/99_russian_koi8_re.cf && \
     wget http://sa-russian.narod.ru/files/20110415/99_russian_win1251_re.cf && \
-    wget http://sa-russian.narod.ru/files/20110415/99_russian_utf8_re.cf && \
-    ln -s /usr/local/bin/spamc /usr/bin/spamc
+    wget http://sa-russian.narod.ru/files/20110415/99_russian_utf8_re.cf
+
+ADD sa-exim.conf /etc/exim4/sa-exim.conf
 
 WORKDIR /usr/bin
 

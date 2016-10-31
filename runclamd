@@ -1,4 +1,7 @@
 #!/bin/sh
+#bug fix for container restart
+(rm /run/rsyslog.pid | true)
+
 chmod 777 -R /usr/local/share/clamav/
 if [ ! -f /usr/local/share/clamav/bytecode.cvd ]
 then
