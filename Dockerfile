@@ -23,7 +23,7 @@ RUN apt install -y uuid-dev libgcrypt-dev libestr-dev flex dh-autoreconf bison p
 ADD Makefile /opt/exim/src/Local
 
 RUN cd /opt && wget http://marc.merlins.org/linux/exim/files/sa-exim-current.tar.gz && tar xzvpf sa-exim-current.tar.gz && cd sa-exim-4* && \
-    cp sa-exim.c /opt/exim/src/src && make sa-exim.h && cp sa-exim.h /opt/exim/src/src && \
+    cp sa-exim.c /opt/exim/src/src/local_scan.c && make sa-exim.h && cp sa-exim.h /opt/exim/src/src && \
     cd /opt/exim/src && make && make install && mkdir -p /var/spool/exim && mkdir -p /usr/lib/exim/lookups && ln -sf /dev/stdout /var/log/syslog && \
     rm -rf /var/lib/apt/lists/* && mkdir -p /run/php && mkdir /var/log/supervisor/ && /usr/bin/easy_install supervisor && /usr/bin/easy_install supervisor-stdout && \
     cd /etc/mail/spamassassin/ && sed -i "s/.*::TxRep.*/loadplugin Mail::SpamAssassin::Plugin::TxRep/g" v341.pre && \
