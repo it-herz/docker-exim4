@@ -3,6 +3,7 @@
 sed -i "s/SQL_PASSWORD/$SQL_PASSWORD/g" /etc/mail/spamassassin/sql.cf
 cd /etc/mail/spamassassin/
 (rm 99_wentor.cf | true)
+chmod 777 -R /var/spool/sa-exim/
 wget http://www.wentor.ru/download/spamassassin/99_wentor.cf
 sa-update
 sa-compile
