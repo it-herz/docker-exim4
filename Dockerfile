@@ -30,7 +30,8 @@ RUN cd /opt && wget http://marc.merlins.org/linux/exim/files/sa-exim-current.tar
     wget http://sa-russian.narod.ru/files/20110415/99_russian_common_re.cf && \
     wget http://sa-russian.narod.ru/files/20110415/99_russian_koi8_re.cf && \
     wget http://sa-russian.narod.ru/files/20110415/99_russian_win1251_re.cf && \
-    wget http://sa-russian.narod.ru/files/20110415/99_russian_utf8_re.cf
+    wget http://sa-russian.narod.ru/files/20110415/99_russian_utf8_re.cf && \
+    ln -s /usr/local/bin/spamc /usr/bin/spamc
 
 WORKDIR /usr/bin
 
@@ -43,6 +44,8 @@ ADD clamd.conf /usr/local/etc/
 ADD runclamd /opt
 ADD spamd /opt
 ADD sql.cf /etc/mail/spamassassin/
+
+VOLUME /var/spool/sa-exim
 
 EXPOSE 25 465 587
 
