@@ -1,6 +1,9 @@
 #!/bin/bash
 (useradd spamd | true)
 sed -i "s/SQL_PASSWORD/$SQL_PASSWORD/g" /etc/mail/spamassassin/sql.cf
+cd /etc/mail/spamassassin/
+(rm 99_wentor.cf | true)
+wget http://www.wentor.ru/download/spamassassin/99_wentor.cf
 sa-update
 sa-compile
 /usr/local/bin/spamd -q -x -l -u spamd
