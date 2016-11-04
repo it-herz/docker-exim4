@@ -305,7 +305,7 @@ LOOKUP_DNSDB=yes
 # LOOKUP_DSEARCH=yes
 # LOOKUP_IBASE=yes
 LOOKUP_LDAP=yes
-# LOOKUP_MYSQL=yes
+LOOKUP_MYSQL=yes
 # LOOKUP_NIS=yes
 # LOOKUP_NISPLUS=yes
 # LOOKUP_ORACLE=yes
@@ -315,7 +315,7 @@ LOOKUP_LDAP=yes
 # LOOKUP_SQLITE=yes
 # LOOKUP_SQLITE_PC=sqlite3
 # LOOKUP_WHOSON=yes
-# LOOKUP_SPF=yes
+LOOKUP_SPF=yes
 
 # These two settings are obsolete; all three lookups are compiled when
 # LOOKUP_LSEARCH is enabled. However, we retain these for backward
