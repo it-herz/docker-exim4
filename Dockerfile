@@ -25,11 +25,6 @@ WORKDIR /usr/bin
 ADD supervisord.conf /etc/supervisord.conf
 ADD rsyslog.conf /etc/rsyslog.conf
 
-ADD freshclam.conf /usr/local/etc/
-ADD clamd.conf /usr/local/etc/
-
-ADD runclamd /opt
-
 EXPOSE 25 465 587
 
 CMD ["supervisord","-n","-c","/etc/supervisord.conf"]
