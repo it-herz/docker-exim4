@@ -26,11 +26,7 @@ RUN cd /opt && wget http://marc.merlins.org/linux/exim/files/sa-exim-current.tar
     cp sa-exim.c /opt/exim/src/src/local_scan.c && make sa-exim.h && cp sa-exim.h /opt/exim/src/src && \
     cd /opt/exim/src && make && make install && mkdir -p /var/spool/exim && mkdir -p /usr/lib/exim/lookups && ln -sf /dev/stdout /var/log/syslog && \
     rm -rf /var/lib/apt/lists/* && mkdir -p /run/php && mkdir /var/log/supervisor/ && /usr/bin/easy_install supervisor && /usr/bin/easy_install supervisor-stdout && \
-    cd /etc/mail/spamassassin/ && sed -i "s/.*::TxRep.*/loadplugin Mail::SpamAssassin::Plugin::TxRep/g" v341.pre && \
-    wget http://sa-russian.narod.ru/files/20110415/99_russian_common_re.cf && \
-    wget http://sa-russian.narod.ru/files/20110415/99_russian_koi8_re.cf && \
-    wget http://sa-russian.narod.ru/files/20110415/99_russian_win1251_re.cf && \
-    wget http://sa-russian.narod.ru/files/20110415/99_russian_utf8_re.cf
+    cd /etc/mail/spamassassin/ && sed -i "s/.*::TxRep.*/loadplugin Mail::SpamAssassin::Plugin::TxRep/g" v341.pre
 
 ADD sa-exim.conf /etc/exim4/sa-exim.conf
 
