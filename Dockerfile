@@ -10,8 +10,8 @@ RUN apt install -y uuid-dev libgcrypt-dev libestr-dev flex dh-autoreconf bison p
     git clone https://github.com/rsyslog/rsyslog && cd rsyslog && ./autogen.sh --enable-omstdout && make && make install && \
     git clone https://github.com/vrtadmin/clamav-devel && cd clamav-devel && ./configure --enable-libfreshclam --enable-experimental && make && make install && \
     export PERL_MM_USE_DEFAULT=1 && (cpan -if Net::DNS HTML::Parser IO::Socket::IP Digest::HMAC Net::DNS::Resolver::Programmable NetAddr::IP Digest::SHA1 Mail::SPF Geo::IP Net::CIDR::Lite Mail::SpamAssassin::Plugin::Razor2 Mail::DKIM DBI Encode::Detect::Detector Net::Patricia DBI DBD::mysql || true) && \
-    svn checkout http://svn.apache.org/repos/asf/spamassassin/branches/3.4 spamassassin-3.4 && \
-    cd spamassassin-3.4 && echo "support@domain.org" | perl Makefile.PL && make && make install && \
+    git clone https://github.com/apache/spamassassin && \
+    cd spamassassin && echo "support@domain.org" | perl Makefile.PL && make && make install && \
     mkdir -p /usr/local/share/clamav && chmod 777 /usr/local/share/clamav/ && ldconfig && \
     cd /usr/local/share/ca-certificates && \
     wget https://letsencrypt.org/certs/letsencryptauthorityx1.pem && mv letsencryptauthorityx1.pem letsencryptauthorityx1.crt && \
